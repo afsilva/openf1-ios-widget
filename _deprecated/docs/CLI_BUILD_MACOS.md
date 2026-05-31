@@ -11,7 +11,7 @@ This guide builds and installs the app without opening Xcode UI.
 From `XcodeProjectTemplate`:
 
 ```bash
-cd openf1-macos-widget/XcodeProjectTemplate
+cd openf1-ios-widget/XcodeProjectTemplate
 
 xcodebuild \
   -project OpenF1Dashboard.xcodeproj \
@@ -95,7 +95,7 @@ Then open **Edit Widgets** and add **OpenF1Dashboard**.
 ## Optional: Generate project with XcodeGen (if desired)
 
 ```bash
-cd openf1-macos-widget/XcodeProjectTemplate
+cd openf1-ios-widget/XcodeProjectTemplate
 ./Scripts/generate_xcodeproj.sh
 ```
 

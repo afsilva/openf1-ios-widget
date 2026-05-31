@@ -36,7 +36,7 @@ That means:
 ## Active project layout
 
 ```text
-openf1-macos-widget/
+openf1-ios-widget/
   OpenF1Shared/
     OpenF1Models.swift
     OpenF1Service.swift
@@ -70,7 +70,7 @@ openf1-macos-widget/
 ## Setup (iOS-first)
 
 ```bash
-cd openf1-macos-widget/XcodeProjectTemplate
+cd openf1-ios-widget/XcodeProjectTemplate
 ./Scripts/generate_xcodeproj.sh
 open OpenF1Dashboard.xcodeproj
 ```

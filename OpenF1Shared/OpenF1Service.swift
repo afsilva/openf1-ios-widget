@@ -810,7 +810,7 @@ public struct OpenF1Service {
             "AUS": "AU", "CHN": "CN", "JPN": "JP", "BHR": "BH", "SAU": "SA", "KSA": "SA",
             "USA": "US", "ITA": "IT", "GBR": "GB", "BEL": "BE", "HUN": "HU", "NLD": "NL",
             "AZE": "AZ", "SGP": "SG", "MEX": "MX", "BRA": "BR", "QAT": "QA", "ARE": "AE",
-            "UAE": "AE", "CAN": "CA", "ESP": "ES", "MCO": "MC", "AUT": "AT", "FRA": "FR"
+            "UAE": "AE", "CAN": "CA", "ESP": "ES", "MCO": "MC", "MON": "MC", "AUT": "AT", "FRA": "FR"
         ]
 
         let alpha2: String

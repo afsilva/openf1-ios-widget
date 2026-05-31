@@ -5,7 +5,7 @@ This template is now intentionally **iOS-only active**.
 ## 1) Generate project
 
 ```bash
-cd openf1-macos-widget/XcodeProjectTemplate
+cd openf1-ios-widget/XcodeProjectTemplate
 ./Scripts/generate_xcodeproj.sh
 open OpenF1Dashboard.xcodeproj
 ```

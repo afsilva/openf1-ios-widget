@@ -1,6 +1,6 @@
 # Security assessment — OWASP Top 10 (2021)
 
-Scope: `openf1-macos-widget` (host app + widget + shared service)
+Scope: `openf1-ios-widget` (host app + widget + shared service)
 
 Assessment result: **PASS (with low-risk notes)**
 
