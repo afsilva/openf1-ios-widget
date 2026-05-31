@@ -35,7 +35,8 @@ For both targets:
 - Manual refresh action works
 - Cache fallback works offline
 - Session time order is `System / Local / UTC`
-- Build stamp follows `bYYYY.MM.DD-ios-NNN` and resets to `001` on date change
+- `CFBundleShortVersionString` uses date format `YYYY.MM.DD`
+- `CFBundleVersion` increments for same-day rebuilds
 - No signing artifacts are committed to git
 - No personal `DEVELOPMENT_TEAM` value is committed to tracked config
 - API source / license text visible in host app

@@ -86,10 +86,10 @@ Refresh policy:
 - daily off-weekend
 - hourly around race weekends
 
-Build stamp convention:
-- Format: `bYYYY.MM.DD-ios-NNN`
-- `NNN` increments for changes made on the same date
-- When the date changes, the counter resets to `001`
+Version/build convention:
+- `CFBundleShortVersionString` (marketing version) uses date format: `YYYY.MM.DD`
+- `CFBundleVersion` (build number) increments for same-day rebuilds (`1`, `2`, `3`, ...)
+- Widget build-stamp text (if shown in UI) should mirror date + build
 
 ---
 

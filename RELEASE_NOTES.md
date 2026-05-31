@@ -24,7 +24,7 @@ Maintaining parallel native macOS widget behavior added complexity and inconsist
 - Native macOS widget path documented as obsolete/deprecated
 - Reliability hardening remains in shared data service logic
 - Session timestamp display order standardized to `System / Local / UTC`
-- Build-stamp policy standardized to `bYYYY.MM.DD-ios-NNN` with daily reset to `001`
+- Version policy standardized to `CFBundleShortVersionString = YYYY.MM.DD` and incrementing `CFBundleVersion` for same-day rebuilds
 
 ---
 

@@ -94,6 +94,6 @@ Apply this to active iOS widget runtime and template copies.
 - Keep bundle IDs/team/app-group values configurable for local signing.
 - Do **not** commit `DEVELOPMENT_TEAM` or personal signing identifiers to git-tracked config.
 - Never commit signing secrets/profiles/cert files to git.
-- Build stamp must follow: `bYYYY.MM.DD-ios-NNN`, with daily reset (`NNN -> 001` on date change).
+- Versioning must follow: `CFBundleShortVersionString = YYYY.MM.DD`; `CFBundleVersion` increments for same-day rebuilds.
 - Session display order must remain: **System / Local / UTC**.
 - Treat removed macOS-native paths as historical context only (kept in git history, not active tree).
