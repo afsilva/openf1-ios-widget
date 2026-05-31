@@ -16,7 +16,7 @@ Usage surfaces:
 - macOS via iPhone widgets on Mac
 
 Deprecation policy:
-- Native macOS host app/widget path is deprecated and archived under _deprecated/ (reference-only).
+- Native macOS host app/widget path is deprecated and removed from active repository structure.
 - Do not generate active native macOS widget targets in project.yml.
 
 Data source and behavior:
@@ -96,4 +96,4 @@ Apply this to active iOS widget runtime and template copies.
 - Never commit signing secrets/profiles/cert files to git.
 - Build stamp must follow: `bYYYY.MM.DD-ios-NNN`, with daily reset (`NNN -> 001` on date change).
 - Session display order must remain: **System / Local / UTC**.
-- Treat `_deprecated/` as reference-only archive.
+- Treat removed macOS-native paths as historical context only (kept in git history, not active tree).

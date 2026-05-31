@@ -37,17 +37,6 @@ That means:
 
 ```text
 openf1-ios-widget/
-  OpenF1Shared/
-    OpenF1Models.swift
-    OpenF1Service.swift
-
-  # Active runtime sources
-  OpenF1iOSHostApp/
-    OpenF1iOSHostApp.swift
-  OpenF1iOSWidget/
-    OpenF1iOSWidget.swift
-    RefreshNowIntent.swift
-
   XcodeProjectTemplate/
     project.yml                      # iOS-only active targets
     SETUP_CHECKLIST.md
@@ -55,14 +44,7 @@ openf1-ios-widget/
     Config/*.plist + *.entitlements
     OpenF1DashboardiOSApp/*          # active
     OpenF1DashboardiOSWidget/*       # active
-    OpenF1Shared/*
-
-  # Obsolete native macOS paths moved to archive
-  _deprecated/runtime-macos/OpenF1HostApp/
-  _deprecated/runtime-macos/OpenF1Widget/
-  _deprecated/template-macos/OpenF1DashboardApp/
-  _deprecated/template-macos/OpenF1DashboardWidget/
-  _deprecated/docs/CLI_BUILD_MACOS.md
+    OpenF1Shared/*                   # active shared code
 ```
 
 ---
@@ -128,11 +110,7 @@ See `SECURITY_OWASP_TOP10.md` for assessment details.
 
 ## Obsolete native macOS widget path
 
-The following are now considered **obsolete/deprecated**:
-- native macOS app/widget targets in generated project
-- native macOS widget as primary distribution path
-
-Reason: iOS widget path is the most reliable and already spans iOS/iPadOS/macOS usage pattern desired.
+Native macOS app/widget targets were deprecated and removed to keep the repo focused on the iOS-first path.
 
 ---
 
