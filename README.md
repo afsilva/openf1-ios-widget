@@ -29,7 +29,7 @@ That means:
 - **iPadOS 17+**
 - **macOS (Apple Silicon) via iPhone widgets on Mac**
 
-> Native macOS widget targets are kept in repo history/runtime folders for reference but are no longer generated as active targets from `project.yml`.
+> Native macOS widget targets were removed from the active tree; historical versions remain available through git history.
 
 ---
 
@@ -75,6 +75,7 @@ Update in code:
 ## Behavior
 
 - Calendar of next relevant sessions (non-canceled)
+- Live-session state while a session/race is in progress (`LIVE R`, `LIVE Q`, etc.)
 - Driver + constructor standings from OpenF1 session results
 - Cache-first refresh with fallback to last-known-good model
 - Manual refresh via widget intent button

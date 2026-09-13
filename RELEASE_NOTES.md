@@ -23,6 +23,7 @@ Maintaining parallel native macOS widget behavior added complexity and inconsist
 - Setup/deployment documentation switched to iOS-first flow
 - Native macOS widget path documented as obsolete/deprecated
 - Reliability hardening remains in shared data service logic
+- Live session/race windows now show `LIVE <session>` instead of premature `done`
 - Session timestamp display order standardized to `System / Local / UTC`
 - Version policy standardized to `CFBundleShortVersionString = YYYY.MM.DD` and incrementing `CFBundleVersion` for same-day rebuilds
 

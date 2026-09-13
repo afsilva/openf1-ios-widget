@@ -62,6 +62,7 @@ With your group.
 - [ ] Verify offline/cache fallback behavior
 - [ ] Verify medium and large layouts
 - [ ] Verify session row order is `System / Local / UTC`
+- [ ] Verify active sessions show `LIVE <session>` instead of premature `done`
 - [ ] Verify `CFBundleShortVersionString` uses `YYYY.MM.DD`
 - [ ] Verify `CFBundleVersion` increments for same-day rebuilds
 

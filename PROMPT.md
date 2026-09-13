@@ -22,7 +22,7 @@ Deprecation policy:
 Data source and behavior:
 - Use OpenF1 API (https://api.openf1.org/v1), endpoints: meetings, sessions, session_result, drivers.
 - Skip canceled sessions/weekends.
-- Show upcoming weekend and next meaningful session.
+- Show upcoming weekend, next meaningful session, and active live-session state while a session/race is in progress.
 - Build driver + constructor standings from race/sprint results.
 
 Reliability and refresh:
@@ -44,6 +44,7 @@ Widget UX requirements (iOS):
 - Medium should be summarized (not a cramped copy of large).
 - Make Grand Prix subtitle stand out slightly without taking extra lines.
 - Session-time rows must remain readable.
+- Active sessions should be marked clearly with `LIVE <session>` and must not show as `done` until the session end window passes.
 - Build-stamp line should be subtle/smaller.
 - Disable default widget tap-through to app root (widgetURL nil) so only refresh control is interactive.
 

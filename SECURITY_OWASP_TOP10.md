@@ -4,7 +4,7 @@ Scope: `openf1-ios-widget` active iOS-only tree (`XcodeProjectTemplate/*`).
 
 Assessment result: **PASS (with medium-priority hardening recommendations)**
 
-Audit date: 2026-05-31
+Audit date: 2026-09-13
 
 ---
 
@@ -25,6 +25,7 @@ Audit date: 2026-05-31
 ## A04: Insecure Design — PASS
 - Cache-first with bounded data + graceful fallback/last-known-good behavior.
 - Failures degrade to safe, non-crashing UI states.
+- Live-session display uses API schedule fields and conservative local duration fallback when `date_end` is missing/unusable.
 - Refresh cadence is controlled (daily / hourly around weekend).
 
 ## A05: Security Misconfiguration — PASS (with recommendations)
@@ -64,6 +65,7 @@ Audit date: 2026-05-31
 - Sanitization before render for driver/team/location/title text
 - Stale-cache rescue for schedule/results/driver directory endpoints
 - Last-known-good standings/calendar fallback to reduce empty-state regressions
+- Live-session state prevents premature `done` display while an active session window is in progress
 
 ## Findings summary
 
