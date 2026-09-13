@@ -2,7 +2,7 @@ import WidgetKit
 import SwiftUI
 import AppIntents
 
-private let buildStamp = "2026.09.13 (1)"
+private let buildStamp = "2026.09.13 (2)"
 
 struct OpenF1iOSWidgetConfigurationIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "OpenF1 Widget Configuration"
