@@ -321,9 +321,10 @@ public struct OpenF1Service {
         let flag = countryFlag(code: meeting.country_code)
         let location = sanitize(meeting.location ?? "Unknown")
         let name = sanitize(meeting.meeting_name ?? "Race Weekend")
+        let liveSession = selectedSessions.first { isSessionLive($0, now: now) }
 
         var rows: [CalendarRow] = []
-        rows.append(.init(text: "Sessions (System / Local / UTC):", dim: true))
+        rows.append(.init(text: liveSession == nil ? "Sessions (System / Local / UTC):" : "LIVE now (System / Local / UTC):", dim: true))
 
         let tz = meeting.gmt_offset ?? "+00:00"
         var orderedKeys: [String] = []
@@ -338,10 +339,11 @@ public struct OpenF1Service {
 
             // Semantic row key: same label + same displayed timestamps should collapse to one row.
             let rowKey = "\(short)|\(local)|\(utc)|\(sys)"
-            let isNext = (nextSession?.session_key == s.session_key)
-            let marker = isNext ? "➡" : "•"
+            let isLive = (liveSession?.session_key == s.session_key)
+            let isNext = !isLive && (nextSession?.session_key == s.session_key)
+            let marker = isLive ? "LIVE" : (isNext ? "➡" : "•")
             let rendered = "\(marker) \(short): \(sys) / \(local) / \(utc)"
-            let priority = isNext ? 1 : 0
+            let priority = isLive ? 2 : (isNext ? 1 : 0)
 
             if let existing = keyedRows[rowKey] {
                 // Prefer the "next session" (arrow) variant when duplicates collide.
@@ -362,7 +364,9 @@ public struct OpenF1Service {
         }
 
         let title: String
-        if let next = nextSession {
+        if let live = liveSession {
+            title = "\(flag) LIVE \(abbreviateSessionName(live.session_name))"
+        } else if let next = nextSession {
             title = "\(flag) \(abbreviateSessionName(next.session_name))"
         } else {
             title = "\(flag) done"
@@ -778,6 +782,36 @@ public struct OpenF1Service {
         let f2 = ISO8601DateFormatter()
         f2.formatOptions = [.withInternetDateTime]
         return f2.date(from: iso) ?? Date.distantPast
+    }
+
+    private func isSessionLive(_ session: Session, now: Date) -> Bool {
+        let start = parseDate(session.date_start)
+        guard start != Date.distantPast else { return false }
+        let end = sessionEndDate(session)
+        return now >= start && now <= end
+    }
+
+    private func sessionEndDate(_ session: Session) -> Date {
+        let start = parseDate(session.date_start)
+        if let dateEnd = session.date_end {
+            let parsedEnd = parseDate(dateEnd)
+            // OpenF1 usually provides useful `date_end`; if missing/unparseable or not after start,
+            // fall back to a conservative estimated duration so live sessions do not show as done.
+            if parsedEnd != Date.distantPast && parsedEnd > start {
+                return parsedEnd
+            }
+        }
+        return start.addingTimeInterval(estimatedSessionDuration(session))
+    }
+
+    private func estimatedSessionDuration(_ session: Session) -> TimeInterval {
+        let name = (session.session_name ?? "").lowercased()
+        let type = (session.session_type ?? "").lowercased()
+        if name == "race" || type == "race" { return 3 * 60 * 60 }
+        if name == "sprint" || type == "sprint" { return 60 * 60 }
+        if name.contains("qualifying") || type.contains("qualifying") { return 90 * 60 }
+        if name.contains("practice") || type.contains("practice") { return 90 * 60 }
+        return 2 * 60 * 60
     }
 
     private func sanitize(_ s: String, maxLen: Int = 160) -> String {
