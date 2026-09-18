@@ -1,6 +1,10 @@
 import SwiftUI
 
-private let hostBuildStamp = "b2026.05.02-ios-002"
+private var hostBuildStamp: String {
+    let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "unknown"
+    let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "unknown"
+    return "\(version) (\(build))"
+}
 
 @main
 struct OpenF1iOSHostApp: App {
